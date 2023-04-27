@@ -1,11 +1,14 @@
-from api_key import API_KEY
+import os
 import requests
 from flask import Flask, render_template, request,  redirect, url_for, session, flash, jsonify
 import random
 from forms import RegistrationForm, LoginForm
 from models import db, connect_db, User, Book, Favorites
 from flask_bcrypt import Bcrypt
+from dotenv import load_dotenv
+load_dotenv()
 
+API_KEY = os.environ.get('API_KEY')
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'abcd12345asdasd'
 app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql:///book_appUI"

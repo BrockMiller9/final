@@ -10,7 +10,7 @@ load_dotenv()
 
 API_KEY = os.environ.get('API_KEY')
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'abcd12345asdasd'
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'hello_world1234')
 app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql:///book_appUI"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["SQLALCHEMY_ECHO"] = True

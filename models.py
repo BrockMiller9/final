@@ -1,10 +1,12 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
-from api_key import API_KEY
 import requests
 from sqlalchemy.orm.exc import NoResultFound
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
-
+API_KEY = os.environ.get('API_KEY')
 db = SQLAlchemy()
 
 bcrypt = Bcrypt()

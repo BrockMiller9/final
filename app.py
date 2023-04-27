@@ -124,6 +124,7 @@ def book_details(book_id):
     response = requests.get(base_url + 'volumes/' +
                             book_id + '?key=' + API_KEY)
     book = response.json()
+    user = None
     if 'user_id' in session:
         user = User.query.get(session['user_id'])
     return render_template('book_details.html', book=book, user=user)

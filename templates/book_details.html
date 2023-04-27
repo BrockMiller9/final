@@ -16,7 +16,7 @@
       />
       {% endif %}
     </div>
-    <div class='results-info'>
+    <div class="results-info">
       <h1 class="book-details-title">{{ book.volumeInfo.title }}</h1>
       <h3>{{ book.volumeInfo.subtitle }}</h3>
       <p>
@@ -28,18 +28,12 @@
       </p>
       {% if book.volumeInfo.averageRating %}
       <p>
-    
-        {% if book.volumeInfo.averageRating is defined %}
-        <p>
-          <strong>Average rating:</strong>
-          {% for i in range(0, book.volumeInfo.averageRating|int) %}
-            <i class="fas fa-star star-gold"></i>
-          {% endfor %}
-          {% for i in range(book.volumeInfo.averageRating|int, 5) %}
-            <i class="fa fa-star"></i>
-          {% endfor %}
-        </p>
-      {% endif %}
+        <strong>Average rating:</strong>
+        {% for i in range(0, book.volumeInfo.averageRating|int) %}
+        <i class="fas fa-star star-gold"></i>
+        {% endfor %} {% for i in range(book.volumeInfo.averageRating|int, 5) %}
+        <i class="fa fa-star"></i>
+        {% endfor %}
       </p>
       {% endif %} {% if book.volumeInfo.ratingsCount %}
       <p><strong>Ratings count:</strong> {{ book.volumeInfo.ratingsCount }}</p>
@@ -58,7 +52,11 @@
         >
       </p>
       {% if session.username %}
-      <form id="favorite-form" action="{{ url_for('add_favorite', book_id=book.id) }}" method="POST">
+      <form
+        id="favorite-form"
+        action="{{ url_for('add_favorite', book_id=book.id) }}"
+        method="POST"
+      >
         <button type="submit" class="submit">Add to Favorites</button>
       </form>
       {% endif %}
@@ -69,4 +67,3 @@
   </div>
 </div>
 {% endblock %}
-
